@@ -1,0 +1,10 @@
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+EventCode=1
+(
+Image="*\\whoami.exe" OR
+Image="*\\hostname.exe" OR
+Image="*\\ipconfig.exe" OR
+Image="*\\net.exe" OR
+Image="*\\systeminfo.exe"
+)
+| table _time Computer User ParentImage Image CommandLine
